@@ -20,6 +20,7 @@ dtbo-y += \
 	pwm8.dtbo \
 	pwm15.dtbo \
 	rknpu.dtbo \
+	six_mcp2515.dtbo \
 	spdif_p29.dtbo \
 	spdif_p32.dtbo \
 	spi0.dtbo \
