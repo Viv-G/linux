@@ -1,0 +1,150 @@
+/dts-v1/;
+/plugin/;
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/pinctrl/rockchip.h>
+#include <dt-bindings/interrupt-controller/irq.h>
+
+/ {
+	fragment@0 {
+		target-path = "/";
+
+		__overlay__ {
+			can0_clk: can0_clk {
+				compatible = "fixed-clock";
+				#clock-cells = <0>;
+				clock-frequency = <16000000>;
+			};
+
+			can1_clk: can1_clk {
+				compatible = "fixed-clock";
+				#clock-cells = <0>;
+				clock-frequency = <16000000>;
+			};
+
+			can2_clk: can2_clk {
+				compatible = "fixed-clock";
+				#clock-cells = <0>;
+				clock-frequency = <16000000>;
+			};
+
+			can3_clk: can3_clk {
+				compatible = "fixed-clock";
+				#clock-cells = <0>;
+				clock-frequency = <16000000>;
+			};
+
+			can4_clk: can4_clk {
+				compatible = "fixed-clock";
+				#clock-cells = <0>;
+				clock-frequency = <16000000>;
+			};
+
+			can5_clk: can5_clk {
+				compatible = "fixed-clock";
+				#clock-cells = <0>;
+				clock-frequency = <16000000>;
+			};
+		};
+	};
+
+	fragment@1 {
+		target = <&spi0>;
+
+		__overlay__ {
+			status = "okay";
+			#address-cells = <1>;
+			#size-cells = <0>;
+			num-cs = <3>;
+			cs-gpios =
+					   <&gpio4 RK_PB1 GPIO_ACTIVE_LOW>,
+					   <&gpio1 RK_PB4 GPIO_ACTIVE_LOW>,
+					   <&gpio0 RK_PD5 GPIO_ACTIVE_LOW>;
+
+			mcp2515can0: can@0 {
+				compatible = "microchip,mcp2515";
+				reg = <0>;
+				clocks = <&can0_clk>;
+				interrupt-parent = <&gpio4>;
+				interrupts = <RK_PB3 IRQ_TYPE_EDGE_FALLING>;
+				spi-max-frequency = <10000000>;
+				pinctrl-names = "default";
+				pinctrl-0 = <&mcp251x_can0_int_pins>;
+				status = "okay";
+			};
+			mcp2515can1: can@1 {
+				compatible = "microchip,mcp2515";
+				reg = <1>;
+				clocks = <&can1_clk>;
+				interrupt-parent = <&gpio3>;
+				interrupts = <RK_PD5 IRQ_TYPE_EDGE_FALLING>;
+				spi-max-frequency = <10000000>;
+				pinctrl-names = "default";
+				pinctrl-0 = <&mcp251x_can1_int_pins>;
+				status = "okay";
+			};
+			mcp2515can2: can@2 {
+				compatible = "microchip,mcp2515";
+				reg = <2>;
+				clocks = <&can2_clk>;
+				interrupt-parent = <&gpio3>;
+				interrupts = <RK_PD4 IRQ_TYPE_EDGE_FALLING>;
+				spi-max-frequency = <10000000>;
+				pinctrl-names = "default";
+				pinctrl-0 = <&mcp251x_can2_int_pins>;
+				status = "okay";
+			};
+
+		};
+	};
+	fragment@2 {
+		target = <&spi3>;
+
+		__overlay__ {
+			status = "okay";
+			#address-cells = <1>;
+			#size-cells = <0>;
+			num-cs = <3>;
+			cs-gpios =
+					   <&gpio3 RK_PB2 GPIO_ACTIVE_LOW>,
+					   <&gpio1 RK_PB2 GPIO_ACTIVE_LOW>,
+					   <&gpio1 RK_PB3 GPIO_ACTIVE_LOW>;
+
+						mcp2515can3: can@0 {
+							compatible = "microchip,mcp2515";
+							reg = <0>;
+							clocks = <&can3_clk>;
+							interrupt-parent = <&gpio0>;
+							interrupts = <RK_PA7 IRQ_TYPE_EDGE_FALLING>;
+							spi-max-frequency = <10000000>;
+							pinctrl-names = "default";
+							pinctrl-0 = <&mcp251x_can3_int_pins>;
+							status = "okay";
+						};
+
+						mcp2515can4: can@1 {
+							compatible = "microchip,mcp2515";
+							reg = <1>;
+							clocks = <&can4_clk>;
+							interrupt-parent = <&gpio4>;
+							interrupts = <RK_PA6 IRQ_TYPE_EDGE_FALLING>;
+							spi-max-frequency = <10000000>;
+							pinctrl-names = "default";
+							pinctrl-0 = <&mcp251x_can4_int_pins>;
+							status = "okay";
+						};
+
+					mcp2515can5: can@2 {
+							compatible = "microchip,mcp2515";
+							reg = <2>;
+							clocks = <&can5_clk>;
+							interrupt-parent = <&gpio0>;
+							interrupts = <RK_PD0 IRQ_TYPE_EDGE_FALLING>;
+							spi-max-frequency = <10000000>;
+							pinctrl-names = "default";
+							pinctrl-0 = <&mcp251x_can5_int_pins>;
+							status = "okay";
+						};
+		};
+	};
+};
