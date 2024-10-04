@@ -114,7 +114,7 @@
 							compatible = "microchip,mcp2515";
 							reg = <0>;
 							clocks = <&can3_clk>;
-							interrupt-parent = <&gpio0>;
+							interrupt-parent = <&gpio4>;
 							interrupts = <RK_PA7 IRQ_TYPE_EDGE_FALLING>;
 							spi-max-frequency = <10000000>;
 							pinctrl-names = "default";
