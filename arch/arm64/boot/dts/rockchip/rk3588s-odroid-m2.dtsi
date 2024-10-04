@@ -1099,7 +1099,7 @@
 &pinctrl {
 	can_pins {
 		mcp251x_can0_int_pins: mcp251x_can0_int_pins {
-			rockchip,pins = <4 RK_PB3 RK_FUNC_GPIO &pcfg_pull_none>;
+			rockchip,pins = <3 RK_PD4 RK_FUNC_GPIO &pcfg_pull_none>;
 		};
 
 		mcp251x_can1_int_pins: mcp251x_can1_int_pins {
@@ -1107,11 +1107,11 @@
 		};
 
 		mcp251x_can2_int_pins: mcp251x_can2_int_pins {
-			rockchip,pins = <3 RK_PD4 RK_FUNC_GPIO &pcfg_pull_none>;
+			rockchip,pins = <4 RK_PB3 RK_FUNC_GPIO &pcfg_pull_none>;
 		};
 
 		mcp251x_can3_int_pins: mcp251x_can3_int_pins {
-			rockchip,pins = <4 RK_PA7 RK_FUNC_GPIO &pcfg_pull_none>;
+			rockchip,pins = <0 RK_PD0 RK_FUNC_GPIO &pcfg_pull_none>;
 		};
 
 		mcp251x_can4_int_pins: mcp251x_can4_int_pins {
@@ -1119,7 +1119,7 @@
 		};
 
 		mcp251x_can5_int_pins: mcp251x_can5_int_pins {
-			rockchip,pins = <0 RK_PD0 RK_FUNC_GPIO &pcfg_pull_none>;
+			rockchip,pins = <4 RK_PA7 RK_FUNC_GPIO &pcfg_pull_none>;
 		};
 	};
 };
