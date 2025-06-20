@@ -9,6 +9,7 @@ dtbo-y += \
 	i2c0.dtbo \
 	i2c1.dtbo \
 	i2c2.dtbo \
+	ir_receiver.dtbo \
 	mcp2515.dtbo \
 	mcp2515_12mhz.dtbo \
 	mcp2515_16mhz.dtbo \
@@ -33,6 +34,7 @@ dtbo-y += \
 	uart3.dtbo \
 	uart4.dtbo \
 	uart5.dtbo \
+	wdt.dtbo \
 	weather_board_zero.dtbo
 
 targets += $(dtbo-y)

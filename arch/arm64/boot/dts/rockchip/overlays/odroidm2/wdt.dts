@@ -3,7 +3,7 @@
 
 / {
 	fragment@0 {
-		target = <&can2>;
+		target = <&wdt>;
 
 		__overlay__ {
 			status = "okay";
